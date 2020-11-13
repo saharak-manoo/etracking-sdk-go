@@ -25,7 +25,7 @@ $ go get github.com/saharak/etracking-sdk-go/etracking
 
 ```go
 import (
-	"github.com/saharak/etracking-sdk-go/etracking"
+  "github.com/saharak/etracking-sdk-go/etracking"
 )
 
 func main() {
