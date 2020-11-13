@@ -29,8 +29,8 @@ import (
 )
 
 func main() {
-	etrackingApi, err := etracking.New("<etrackings api key>", "<etrackings key secret>")
-	if err != nil {
+  etrackingApi, err := etracking.New("<etrackings api key>", "<etrackings key secret>")
+  if err != nil {
     fmt.Println("Errors " + err.Error())
   }
 
