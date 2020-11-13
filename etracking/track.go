@@ -3,6 +3,7 @@ package etracking
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"time"
 )
@@ -46,139 +47,174 @@ type Event struct {
 	Description  string          `json:"description"`
 }
 
-func (client *Client) Find(courier string, trackingNumber string) Response {
+func (client *Client) Find(courier string, trackingNumber string) (*Response, error) {
 	return client.track(courier, trackingNumber, APIEndpointTracksFind)
 }
 
-func (client *Client) KerryExpress(trackingNumber string) Response {
-	return client.track("kerry_express", trackingNumber, APIEndpointTracks)
+func (client *Client) KerryExpress(trackingNumber string) (*Response, error) {
+	courier := "kerry_express"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) ShopeeExpress(trackingNumber string) Response {
-	return client.track("shopee_express", trackingNumber, APIEndpointTracks)
+func (client *Client) ShopeeExpress(trackingNumber string) (*Response, error) {
+	courier := "shopee_express"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) DhlExpress(trackingNumber string) Response {
-	return client.track("dhl_express", trackingNumber, APIEndpointTracks)
+func (client *Client) DhlExpress(trackingNumber string) (*Response, error) {
+	courier := "dhl_express"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) JtExpress(trackingNumber string) Response {
-	return client.track("jt_express", trackingNumber, APIEndpointTracks)
+func (client *Client) JtExpress(trackingNumber string) (*Response, error) {
+	courier := "jt_express"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) AlphaFast(trackingNumber string) Response {
-	return client.track("alpha_fast", trackingNumber, APIEndpointTracks)
+func (client *Client) AlphaFast(trackingNumber string) (*Response, error) {
+	courier := "alpha_fast"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) BestExpress(trackingNumber string) Response {
-	return client.track("best_express", trackingNumber, APIEndpointTracks)
+func (client *Client) BestExpress(trackingNumber string) (*Response, error) {
+	courier := "best_express"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) CjLogistics(trackingNumber string) Response {
-	return client.track("cj_logistics", trackingNumber, APIEndpointTracks)
+func (client *Client) CjLogistics(trackingNumber string) (*Response, error) {
+	courier := "cj_logistics"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) SpeedD(trackingNumber string) Response {
-	return client.track("speed_d", trackingNumber, APIEndpointTracks)
+func (client *Client) SpeedD(trackingNumber string) (*Response, error) {
+	courier := "speed_d"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) NinjaVan(trackingNumber string) Response {
-	return client.track("ninja_van", trackingNumber, APIEndpointTracks)
+func (client *Client) NinjaVan(trackingNumber string) (*Response, error) {
+	courier := "ninja_van"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) Ups(trackingNumber string) Response {
-	return client.track("ups", trackingNumber, APIEndpointTracks)
+func (client *Client) Ups(trackingNumber string) (*Response, error) {
+	courier := "ups"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) ScgExpress(trackingNumber string) Response {
-	return client.track("scg_express", trackingNumber, APIEndpointTracks)
+func (client *Client) ScgExpress(trackingNumber string) (*Response, error) {
+	courier := "scg_express"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) BeeExpress(trackingNumber string) Response {
-	return client.track("bee_express", trackingNumber, APIEndpointTracks)
+func (client *Client) BeeExpress(trackingNumber string) (*Response, error) {
+	courier := "bee_express"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) InterExpress(trackingNumber string) Response {
-	return client.track("inter_express", trackingNumber, APIEndpointTracks)
+func (client *Client) InterExpress(trackingNumber string) (*Response, error) {
+	courier := "inter_express"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) TntExpress(trackingNumber string) Response {
-	return client.track("tnt_express", trackingNumber, APIEndpointTracks)
+func (client *Client) TntExpress(trackingNumber string) (*Response, error) {
+	courier := "tnt_express"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) Shippop(trackingNumber string) Response {
-	return client.track("shippop", trackingNumber, APIEndpointTracks)
+func (client *Client) Shippop(trackingNumber string) (*Response, error) {
+	courier := "shippop"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) Aramex(trackingNumber string) Response {
-	return client.track("aramex", trackingNumber, APIEndpointTracks)
+func (client *Client) Aramex(trackingNumber string) (*Response, error) {
+	courier := "aramex"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) FedEx(trackingNumber string) Response {
-	return client.track("fed_ex", trackingNumber, APIEndpointTracks)
+func (client *Client) FedEx(trackingNumber string) (*Response, error) {
+	courier := "fed_ex"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) TpLogistics(trackingNumber string) Response {
-	return client.track("tp_logistics", trackingNumber, APIEndpointTracks)
+func (client *Client) TpLogistics(trackingNumber string) (*Response, error) {
+	courier := "tp_logistics"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) ItTransport(trackingNumber string) Response {
-	return client.track("it_transport", trackingNumber, APIEndpointTracks)
+func (client *Client) ItTransport(trackingNumber string) (*Response, error) {
+	courier := "it_transport"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) NakhonchaiAir(trackingNumber string) Response {
-	return client.track("nakhonchai_air", trackingNumber, APIEndpointTracks)
+func (client *Client) NakhonchaiAir(trackingNumber string) (*Response, error) {
+	courier := "nakhonchai_air"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) NimExpress(trackingNumber string) Response {
-	return client.track("nim_express", trackingNumber, APIEndpointTracks)
+func (client *Client) NimExpress(trackingNumber string) (*Response, error) {
+	courier := "nim_express"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) FlashExpress(trackingNumber string) Response {
-	return client.track("flash_express", trackingNumber, APIEndpointTracks)
+func (client *Client) FlashExpress(trackingNumber string) (*Response, error) {
+	courier := "flash_express"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) BsExpress(trackingNumber string) Response {
-	return client.track("bs_express", trackingNumber, APIEndpointTracks)
+func (client *Client) BsExpress(trackingNumber string) (*Response, error) {
+	courier := "bs_express"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) Shipjung(trackingNumber string) Response {
-	return client.track("shipjung", trackingNumber, APIEndpointTracks)
+func (client *Client) Shipjung(trackingNumber string) (*Response, error) {
+	courier := "shipjung"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) GlobalCainiao(trackingNumber string) Response {
-	return client.track("global_cainiao", trackingNumber, APIEndpointTracks)
+func (client *Client) GlobalCainiao(trackingNumber string) (*Response, error) {
+	courier := "global_cainiao"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) JapanPost(trackingNumber string) Response {
-	return client.track("japan_post", trackingNumber, APIEndpointTracks)
+func (client *Client) JapanPost(trackingNumber string) (*Response, error) {
+	courier := "japan_post"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) ChinaPost(trackingNumber string) Response {
-	return client.track("china_post", trackingNumber, APIEndpointTracks)
+func (client *Client) ChinaPost(trackingNumber string) (*Response, error) {
+	courier := "china_post"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) SkyBox(trackingNumber string) Response {
-	return client.track("sky_box", trackingNumber, APIEndpointTracks)
+func (client *Client) SkyBox(trackingNumber string) (*Response, error) {
+	courier := "sky_box"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) BookMyCargo(trackingNumber string) Response {
-	return client.track("book_my_cargo", trackingNumber, APIEndpointTracks)
+func (client *Client) BookMyCargo(trackingNumber string) (*Response, error) {
+	courier := "book_my_cargo"
+	return client.track(courier, trackingNumber, fmt.Sprintf(APIEndpointTracks, courier))
 }
 
-func (client *Client) track(courier, trackingNumber, endpoint string) Response {
+func (client *Client) track(courier, trackingNumber, endpoint string) (response *Response, err error) {
 	payload := Payload{
 		Courier: courier,
 		TrackingNumber: trackingNumber,
 	}
 
 	payloadByte, _ := json.Marshal(payload)
-	resp, _ := client.post(endpoint, bytes.NewReader(payloadByte))
+	resp, err := client.post(endpoint, bytes.NewReader(payloadByte))
+
+	if err != nil {
+		return nil, err
+	}
+
+	defer closeResponse(resp)
+
 	bodyBytes, _ := ioutil.ReadAll(resp.Body)
 	bodyString := string(bodyBytes)
 
-	response := Response{}
 	json.Unmarshal([]byte(bodyString), &response)
 
-	return response
+	return response, nil
 }

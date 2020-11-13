@@ -3,6 +3,7 @@ package etracking
 import (
 	"errors"
 	"io"
+	"io/ioutil"
 	"net/http"
 	"net/url"
 	"path"
@@ -75,7 +76,11 @@ func (client *Client) post(endpoint string, body io.Reader) (*http.Response, err
 		return nil, err
 	}
 
-	defer req.Body.Close()
-
 	return client.do(req)
+}
+
+func closeResponse(res *http.Response) error {
+	defer res.Body.Close()
+	_, err := io.Copy(ioutil.Discard, res.Body)
+	return err
 }
