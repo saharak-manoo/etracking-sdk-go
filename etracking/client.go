@@ -11,10 +11,10 @@ import (
 
 // APIEndpoint constants
 const (
-	APIEndpointBase             = "https://api.etrackings.com"
+	APIEndpointBase             = "https://fast.etrackings.com"
 
-	APIEndpointTracksFind       = "/v2/tracks/find"
-	APIEndpointTracks           = "/v2/tracks/%s"
+	APIEndpointTracksFind       = "/api/v3/tracks/find"
+	APIEndpointTracks           = "/api/v3/tracks/%s"
 )
 
 // Client type
@@ -31,11 +31,11 @@ type ClientOption func(*Client) error
 // New returns a new bot client instance.
 func New(etrackingsApiKey, etrackingsKeySecret string) (*Client, error) {
 	if etrackingsApiKey == "" {
-		return nil, errors.New("missing etrackings api key")
+		return nil, errors.New("Missing etrackings api key")
 	}
 
 	if etrackingsKeySecret == "" {
-		return nil, errors.New("missing etrackings key secret")
+		return nil, errors.New("Missing etrackings key secret")
 	}
 
 	c := &Client{
@@ -63,8 +63,8 @@ func (client *Client) url(base *url.URL, endpoint string) string {
 
 func (client *Client) do(req *http.Request) (*http.Response, error) {
 	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set("etracking-api-key", client.etrackingsApiKey)
-	req.Header.Set("etracking-key-secret", client.etrackingsKeySecret)
+	req.Header.Set("Etrackings-api-key", client.etrackingsApiKey)
+	req.Header.Set("Etrackings-key-secret", client.etrackingsKeySecret)
 
 	return client.httpClient.Do(req)
 }
