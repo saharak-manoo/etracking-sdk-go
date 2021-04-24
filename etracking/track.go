@@ -9,18 +9,18 @@ import (
 )
 
 type Payload struct {
-	Courier           string     `json:"courier"`
-	TrackingNo        string     `json:"trackingNo"`
+	Courier    string `json:"courier"`
+	TrackingNo string `json:"trackingNo"`
 }
 
 type Response struct {
-	Meta              Meta       `json:"meta"`
-	Data              Data       `json:"data"`
+	Meta Meta `json:"meta"`
+	Data Data `json:"data"`
 }
 
 type Meta struct {
-	Code              int        `json:"code"`
-	Message           string     `json:"message"`
+	Code    int    `json:"code"`
+	Message string `json:"message"`
 }
 
 type Data struct {
@@ -35,41 +35,41 @@ type Data struct {
 }
 
 type ParcelDetail struct {
-	Sender                         string          `json:"sender"`
-	Recipient                      string          `json:"recipient"`
-	Qty                            int64           `json:"qty"`
-	Address                        string          `json:"address"`
-	OriginCity                     string          `json:"originCity"`
-	OriginProvince                 string          `json:"originProvince"`
-	OriginCountry                  string          `json:"originCountry"`
-	DestinationCity                string          `json:"destinationCity"`
-	DestinationProvince            string          `json:"destinationProvince"`
-	DestinationCountry             string          `json:"destinationCountry"`
-	Signer                         string          `json:"signer"`
-	SignerImageURL                 string          `json:"signerImageURL"`
-	Weight                         int64           `json:"weight"`
-	ShippingService                string          `json:"shippingService"`
-	ReturnShippingService          string          `json:"returnShippingService"`
-	DeliveryType                   string          `json:"deliveryType"`
-	SenderPhoneNumber              string          `json:"senderPhoneNumber"`
-	RecipientPhoneNumber           string          `json:"recipientPhoneNumber"`
-	DueDate                        string          `json:"dueDate"`
-	CashOnDelivery                 float64         `json:"cashOnDelivery"`
-	IsPayCashOnDelivery            bool            `json:"isPayCashOnDelivery"`
-	DeliveryStaffName              string          `json:"deliveryStaffName"`
-	DeliveryStaffPhoneNumber       string          `json:"deliveryStaffPhoneNumber"`
-	DeliveryStaffBranchPhoneNumber string          `json:"deliveryStaffBranchPhoneNumber"`
-	SenderCompany                  string          `json:"senderCompany"`
-	SenderAddress                  string          `json:"senderAddress"`
-	RecipientCompany               string          `json:"recipientCompany"`
-	RecipientAddress               string          `json:"recipientAddress"`
-	CourierTrackingNumber          string          `json:"courierTrackingNumber"`
-	CourierPartner                 string          `json:"courierPartner"`
+	Sender                         string  `json:"sender"`
+	Recipient                      string  `json:"recipient"`
+	Qty                            int64   `json:"qty"`
+	Address                        string  `json:"address"`
+	OriginCity                     string  `json:"originCity"`
+	OriginProvince                 string  `json:"originProvince"`
+	OriginCountry                  string  `json:"originCountry"`
+	DestinationCity                string  `json:"destinationCity"`
+	DestinationProvince            string  `json:"destinationProvince"`
+	DestinationCountry             string  `json:"destinationCountry"`
+	Signer                         string  `json:"signer"`
+	SignerImageURL                 string  `json:"signerImageURL"`
+	Weight                         int64   `json:"weight"`
+	ShippingService                string  `json:"shippingService"`
+	ReturnShippingService          string  `json:"returnShippingService"`
+	DeliveryType                   string  `json:"deliveryType"`
+	SenderPhoneNumber              string  `json:"senderPhoneNumber"`
+	RecipientPhoneNumber           string  `json:"recipientPhoneNumber"`
+	DueDate                        string  `json:"dueDate"`
+	CashOnDelivery                 float64 `json:"cashOnDelivery"`
+	IsPayCashOnDelivery            bool    `json:"isPayCashOnDelivery"`
+	DeliveryStaffName              string  `json:"deliveryStaffName"`
+	DeliveryStaffPhoneNumber       string  `json:"deliveryStaffPhoneNumber"`
+	DeliveryStaffBranchPhoneNumber string  `json:"deliveryStaffBranchPhoneNumber"`
+	SenderCompany                  string  `json:"senderCompany"`
+	SenderAddress                  string  `json:"senderAddress"`
+	RecipientCompany               string  `json:"recipientCompany"`
+	RecipientAddress               string  `json:"recipientAddress"`
+	CourierTrackingNumber          string  `json:"courierTrackingNumber"`
+	CourierPartner                 string  `json:"courierPartner"`
 }
 
 type Timeline struct {
-	Date     		 string          `json:"date"`
-	Details      []Event         `json:"details"`
+	Date    string  `json:"date"`
+	Details []Event `json:"details"`
 }
 
 type Event struct {
@@ -231,7 +231,7 @@ func (client *Client) BookMyCargo(trackingNo string) (*Response, error) {
 
 func (client *Client) track(courier, trackingNo, endpoint string) (response *Response, err error) {
 	payload := Payload{
-		Courier: courier,
+		Courier:    courier,
 		TrackingNo: trackingNo,
 	}
 
